@@ -258,12 +258,11 @@ img {
 }
 
 .hero-photo {
-  max-width: 100%;
+  max-width: 380px;
   width: 100%;
   height: auto;
-  margin: 0 auto 1rem;
-  border: 6px double var(--gold);
-  border-radius: var(--radius);
+  display: block;
+  margin: 0 auto;
 }
 
 .hero-caption {
