@@ -66,34 +66,151 @@ img {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: var(--blue);
+  background: #2b2b3d;
   box-shadow: 0 2px 8px var(--shadow);
 }
 
 .nav-inner {
   max-width: var(--max-width);
   margin: 0 auto;
+  position: relative;
+}
+
+/* Hamburger toggle (hidden on desktop) */
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  display: none;
+  cursor: pointer;
+  padding: 0.85rem 1rem;
+  position: relative;
+  z-index: 110;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block;
+  background: navy;
+  height: 3px;
+  width: 24px;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  content: '';
+  position: absolute;
+}
+
+.nav-toggle-label span::before { top: -7px; }
+.nav-toggle-label span::after  { top: 7px; }
+
+/* Hamburger animation when checked */
+.nav-toggle:checked + .nav-toggle-label span {
+  background: transparent;
+}
+.nav-toggle:checked + .nav-toggle-label span::before {
+  transform: rotate(45deg);
+  top: 0;
+  background: navy;
+}
+.nav-toggle:checked + .nav-toggle-label span::after {
+  transform: rotate(-45deg);
+  top: 0;
+  background: navy;
+}
+
+/* Top-level menu list */
+.nav-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0;
 }
 
-.nav-inner a {
-  color: #fff;
-  padding: 0.75rem 1.25rem;
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: background 0.2s;
+.nav-menu > li {
+  position: relative;
 }
 
-.nav-inner a:visited {
-  color: #fff;
+.nav-menu > li > a {
+  display: block;
+  color: navy;
+  background: #E3E3E3;
+  padding: 0.65rem 1rem;
+  font-weight: 700;
+  font-size: 0.88rem;
+  font-family: Verdana, Arial, sans-serif;
+  text-decoration: none;
+  border-right: 1px solid #ccc;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
 }
 
-.nav-inner a:hover {
-  background: var(--pink);
-  color: #fff;
+.nav-menu > li:last-child > a {
+  border-right: none;
+}
+
+.nav-menu > li > a:visited {
+  color: navy;
+}
+
+.nav-menu > li > a:hover,
+.nav-menu > li:hover > a {
+  background: navy;
+  color: #ffffdc;
+  text-decoration: none;
+}
+
+/* Dropdown submenus */
+.dropdown {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  background: #E3E3E3;
+  border: 1px solid #000;
+  box-shadow: 3px 3px 5px rgba(0,0,0,0.3);
+  display: none;
+  z-index: 200;
+}
+
+.nav-menu > li:hover > .dropdown {
+  display: block;
+}
+
+.dropdown li a {
+  display: block;
+  padding: 0.4rem 0.85rem;
+  color: navy;
+  font-size: 0.82rem;
+  font-family: Verdana, Arial, sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid #ccc;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s;
+}
+
+.dropdown li:last-child a {
+  border-bottom: none;
+}
+
+.dropdown li a:visited {
+  color: navy;
+}
+
+.dropdown li a:hover {
+  background: navy;
+  color: #ffffdc;
   text-decoration: none;
 }
 
@@ -363,14 +480,50 @@ img {
 }
 
 /* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .nav-toggle-label {
+    display: block;
+    background: #E3E3E3;
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #E3E3E3;
+  }
+
+  .nav-toggle:checked ~ .nav-menu {
+    display: flex;
+  }
+
+  .nav-menu > li > a {
+    border-right: none;
+    border-bottom: 1px solid #ccc;
+    padding: 0.7rem 1rem;
+  }
+
+  .dropdown {
+    position: static;
+    box-shadow: none;
+    border: none;
+    background: #d4d4d4;
+  }
+
+  /* On mobile, show dropdowns when parent is tapped/hovered */
+  .nav-menu > li:hover > .dropdown,
+  .nav-menu > li:focus-within > .dropdown {
+    display: block;
+  }
+
+  .dropdown li a {
+    padding-left: 1.5rem;
+  }
+}
+
 @media (max-width: 600px) {
   .hero h1 {
     font-size: 1.8rem;
-  }
-
-  .nav-inner a {
-    padding: 0.6rem 0.8rem;
-    font-size: 0.85rem;
   }
 
   .link-grid {
