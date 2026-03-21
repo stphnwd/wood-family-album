@@ -141,7 +141,9 @@ img {
 }
 
 .hero-photo {
-  max-width: 500px;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
   margin: 0 auto 1rem;
   border: 6px double var(--gold);
   border-radius: var(--radius);
