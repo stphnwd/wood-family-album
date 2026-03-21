@@ -1,0 +1,270 @@
+/* ============================================
+   The Wood Family Album — Style Sheet
+   ============================================ */
+
+/* ---------- Google Font ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+/* ---------- CSS Variables ---------- */
+:root {
+  --blue: #3366CC;
+  --pink: #FF6699;
+  --visited: #CC3399;
+  --gold: #9B8347;
+  --bg: #FFF9F5;
+  --card-bg: #FFFFFF;
+  --text: #333333;
+  --text-light: #666666;
+  --shadow: rgba(0, 0, 0, 0.08);
+  --radius: 8px;
+  --max-width: 1100px;
+}
+
+/* ---------- Reset & Base ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--blue);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--pink);
+  text-decoration: underline;
+}
+
+a:visited {
+  color: var(--visited);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ---------- Sticky Nav ---------- */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--blue);
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+.nav-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0;
+}
+
+.nav-inner a {
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.2s;
+}
+
+.nav-inner a:visited {
+  color: #fff;
+}
+
+.nav-inner a:hover {
+  background: var(--pink);
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ---------- Music Button ---------- */
+.music-btn {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 200;
+  background: var(--pink);
+  color: #fff;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.6rem 1.2rem;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.music-btn:hover {
+  background: var(--visited);
+  transform: scale(1.05);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+  background: linear-gradient(135deg, var(--bg) 0%, #FFE8F0 100%);
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  color: var(--blue);
+  margin-bottom: 0.25rem;
+}
+
+.hero .subtitle {
+  font-size: 1.15rem;
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+}
+
+.hero-photo {
+  max-width: 500px;
+  margin: 0 auto 1rem;
+  border: 6px double var(--gold);
+  border-radius: var(--radius);
+}
+
+.hero-caption {
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.hero-caption a {
+  color: var(--gold);
+}
+
+.hero-caption a:hover {
+  color: var(--pink);
+}
+
+/* ---------- Intro ---------- */
+.intro {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-size: 1.05rem;
+}
+
+.intro p {
+  margin-bottom: 0.75rem;
+}
+
+/* ---------- Heart Divider ---------- */
+.heart-divider {
+  text-align: center;
+  margin: 1rem 0;
+  font-size: 1.5rem;
+  color: var(--pink);
+  letter-spacing: 0.5rem;
+}
+
+/* ---------- Section Headings ---------- */
+.section-heading {
+  max-width: var(--max-width);
+  margin: 2rem auto 1rem;
+  padding: 0 1rem;
+}
+
+.section-heading h2 {
+  color: var(--blue);
+  font-size: 1.6rem;
+  border-bottom: 3px solid var(--pink);
+  display: inline-block;
+  padding-bottom: 0.25rem;
+}
+
+/* ---------- Link Grid ---------- */
+.link-grid {
+  max-width: var(--max-width);
+  margin: 0 auto 2rem;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.5rem 1.5rem;
+}
+
+.link-grid a {
+  display: block;
+  padding: 0.4rem 0;
+  font-size: 0.95rem;
+}
+
+.link-grid a::before {
+  content: '\2665';
+  color: var(--pink);
+  margin-right: 0.5rem;
+  font-size: 0.85rem;
+}
+
+/* ---------- Friends / External ---------- */
+.friends-section {
+  background: #FFF0F5;
+  padding: 2rem 1rem;
+  margin-top: 2rem;
+}
+
+.friends-section .section-heading {
+  padding: 0;
+}
+
+.friends-section .link-grid {
+  padding: 0;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--text-light);
+  font-size: 0.85rem;
+  border-top: 1px solid #eee;
+  margin-top: 2rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .nav-inner a {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .link-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .music-btn {
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+}
