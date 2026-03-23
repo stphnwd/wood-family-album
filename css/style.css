@@ -271,14 +271,18 @@ p {
 }
 
 /* ---------- Hero (homepage) ---------- */
-.hero {
+.hero-wrapper {
   background: linear-gradient(135deg, #FFF9F5, #FFE8F0);
+  width: 100%;
   padding: 3rem 2rem;
 }
 
-.hero-inner {
+.hero {
   max-width: var(--max-width);
   margin: 0 auto;
+}
+
+.hero-inner {
   display: flex;
   align-items: center;
   gap: 2.5rem;
@@ -658,7 +662,7 @@ p {
     font-size: 1.8rem;
   }
 
-  .hero {
+  .hero-wrapper {
     padding: 2rem 1rem;
   }
 
